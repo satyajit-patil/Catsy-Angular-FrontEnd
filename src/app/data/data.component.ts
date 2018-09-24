@@ -15,6 +15,8 @@ export class DataComponent implements OnInit {
   displayData = [];
   numPerPage = 16;
   numPerRow = 4;
+  currentPageNumber = 1;
+  totalPages = 1; 
 
   constructor(private getDataService: GetDataService, 
     private itemDetailComponent: ItemDetailComponent, 
@@ -26,30 +28,59 @@ export class DataComponent implements OnInit {
   });
   }
 
+  pageChange(pageNumberInput): void {
+  if(pageNumberInput == '<')
+    {
+      if(this.currentPageNumber > 1)
+      {
+        this.currentPageNumber--;
+      }
+    }
+    else if(pageNumberInput == '>')
+    {
+      if(this.currentPageNumber < this.displayData.length)
+      this.currentPageNumber++;
+    }
+    else if(pageNumberInput == '<<')
+    {
+      this.currentPageNumber = 1;
+    }
+    else if(pageNumberInput == '>>')
+    {
+      this.currentPageNumber = this.displayData.length;
+    }
+    else
+    {
+      this.currentPageNumber = pageNumberInput;
+    }
+  }
+  
   onSelect(item): void {
-    console.log(item.stockId);
     this.itemDetailComponent.populateItemDetails(this.data, item.stockId);
     window.location.href = this.queryStringParameters.updateQueryStringParameter(window.location.href, "item", "details", item.stockId);//this.updateQueryStringParameter(window.location.href, "item", "details", item.stockId);
   }
 
   populateDisplayData(data) {
     this.data = data;
-    var numDataDisplayed = 0;
+
+    var pageItem = [];
+    var rowItem = {};
     var rowNum = 1;
     var rowItemNum = 0;
-
-    var rowItem = {};
     rowItem["row"] = rowNum;
     rowItem["data"] = [];
+    var numDataDisplayed = 0;
 
     // FOR each product in data
     for (var key in this.data) {
       // IF data displayed equal number per page
       if (numDataDisplayed == this.numPerPage) {
-        break;
+        this.displayData.push(pageItem);
+        pageItem = [];
+        numDataDisplayed = 0;
+        rowNum = 1;
+        //break;
       }
-      // ELSE
-      else {
         //get item information and push to data for row
         var itemInformation = {};
         itemInformation['stockId'] = key;
@@ -64,7 +95,8 @@ export class DataComponent implements OnInit {
 
         // IF reached row max, push rowItem to displayData
         if (rowItemNum == this.numPerRow) {
-          this.displayData.push(rowItem);
+          pageItem.push(rowItem);
+          //this.displayData.push(rowItem);
           rowItemNum = 0;
 
           var rowItem = {};
@@ -72,8 +104,7 @@ export class DataComponent implements OnInit {
           rowItem["row"] = rowNum;
           rowItem["data"] = [];
         }
-      }
     }
+    this.totalPages = this.displayData.length;
   }
-
 }

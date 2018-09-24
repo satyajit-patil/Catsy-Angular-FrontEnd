@@ -6,6 +6,52 @@
   height: 100%;
 }
 
+.top-navigation {
+  position: relative;
+  width: 100%;
+  height: 8%;
+  margin-top:30px;
+  box-sizing: border-box;
+  border: 1px solid lightgray;
+}
+
+.searchInformation {
+  position: relative;
+  width: 73%;
+  height: 50%;
+  float: left;
+  top: 30%;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 70%;
+  padding-left: 2%;
+}
+
+.buttonList {
+  position: relative;
+  width: 23%;
+  height: 50%;
+  float: right;
+  top: 25%;
+  padding-right: 2%;
+}
+
+.buttonList button {
+  position: relative;
+  width: 12.5%;
+  height: 100%;
+  float: left;
+  font-family: 'Montserrat', sans-serif;
+  background-color: Transparent;
+}
+
+#currentPageButton {
+  background-color: darkgray;
+}
+
+.buttonList button:focus {
+  outline: none;
+}
+
 .row {
   display: grid;
   grid-template-columns: 22% 22% 22% 22%;

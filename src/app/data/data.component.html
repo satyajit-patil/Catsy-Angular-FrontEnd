@@ -1,10 +1,27 @@
 <div class="container">
-  <div class="row" *ngFor="let row of displayData">
+  <div class="top-navigation">
+    <div class="searchInformation">
+      <p>{{((currentPageNumber-1)*numPerPage)+1}}-{{currentPageNumber*numPerPage}} of {{totalPages*numPerPage}} RESULTS</p>
+    </div>
+    <div class="buttonList">
+      <button (click)="pageChange('<<')"><p>&#x21DA;</p></button>
+      <button (click)="pageChange('<')"><p>&#x2190;</p></button>
+      <button id="currentPageButton" (click)="pageChange(currentPageNumber)"><p>{{currentPageNumber}}</p></button>
+      <button (click)="pageChange(currentPageNumber+1)"><p>{{currentPageNumber + 1}}</p></button>
+      <button (click)="pageChange(currentPageNumber+2)"><p>{{currentPageNumber + 2}}</p></button>
+      <button (click)="pageChange(currentPageNumber+3)"><p>{{currentPageNumber + 3}}</p></button>
+      <button (click)="pageChange('>')"><p>&#x2192;</p></button>
+      <button (click)="pageChange('>>')"><p>&#x21DB;</p></button>
+    </div>
+  </div>
+  <div class="row" *ngFor="let row of displayData[currentPageNumber-1]">
     <a class="item" *ngFor="let item of row.data" 
     (click)="onSelect(item)">
       <img src={{item.imgSrc}}>
       <p>{{item.description}}</p>
       <h5>{{item.stockId}}</h5>
     </a>
+</div>
+<div class="bottom-navigation">
 </div>
 </div>
