@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { GetDataService } from '../get-data.service';
+import { QueryStringParametersService } from '../query-string-parameters.service';
 
 @Component({
   selector: 'app-item-detail',
@@ -12,33 +13,33 @@ export class ItemDetailComponent implements OnInit {
   itemDetails = [];
   data = {};
 
-  constructor(private getDataService : GetDataService) {
+  constructor(private getDataService : GetDataService,
+    private queryStringParameters: QueryStringParametersService) {
    }
 
   ngOnInit() {
-    //this.data = this.getDataService.getData();
     var productDetails = {};
-    productDetails['description'] = "Not Provided";
-    productDetails['stockNumber'] = "Not Provided";
-    productDetails['productCategory'] = "Not Provided";
-    productDetails['stockType'] = "Not Provided";
-    productDetails['eccn'] = "Not Provided";
-    productDetails['rohs'] = "Not Provided";
-    productDetails['manager'] = "Not Provided";
-    productDetails['packageType'] = "Not Provided";
-    productDetails['multiple'] = "Not Provided";
-    productDetails['productSeries'] = "Not Provided";
-    productDetails['productStatus'] = "Not Provided";
-    productDetails['COO'] = "Not Provided";
-    productDetails['htsCode'] = "Not Provided";
-    productDetails['leadtime'] = "Not Provided";
-    productDetails['unitWeight'] = "Not Provided";
-    productDetails['packageSize'] = "Not Provided";
-    productDetails['disMOQ'] = "Not Provided";
+    productDetails['description'] = "";
+    productDetails['stockNumber'] = "";
+    productDetails['productCategory'] = "";
+    productDetails['stockType'] = "";
+    productDetails['eccn'] = "";
+    productDetails['rohs'] = "";
+    productDetails['manager'] = "";
+    productDetails['packageType'] = "";
+    productDetails['multiple'] = "";
+    productDetails['productSeries'] = "";
+    productDetails['productStatus'] = "";
+    productDetails['COO'] = "";
+    productDetails['htsCode'] = "";
+    productDetails['leadtime'] = "";
+    productDetails['unitWeight'] = "";
+    productDetails['packageSize'] = "";
+    productDetails['disMOQ'] = "";
 
     this.itemDetails.push(productDetails);
 
-    var stockId = this.getParameterByName('details', null);
+    var stockId = this.queryStringParameters.getParameterByName('details', null);
     if(stockId)
     {
       this.itemDetails = [];
@@ -72,15 +73,4 @@ export class ItemDetailComponent implements OnInit {
 
     this.itemDetails.push(productDetails);
   }
-
-  getParameterByName(name, url) {
-    if (!url) url = window.location.href;
-    name = name.replace(/[\[\]]/g, '\\$&');
-    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
-        results = regex.exec(url);
-    if (!results) return null;
-    if (!results[2]) return '';
-    return decodeURIComponent(results[2].replace(/\+/g, ' '));
-}
-
 }

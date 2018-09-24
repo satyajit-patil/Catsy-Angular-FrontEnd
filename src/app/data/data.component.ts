@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { GetDataService } from '../get-data.service';
 import { ItemDetailComponent } from '../item-detail/item-detail.component';
+import { QueryStringParametersService } from '../query-string-parameters.service';
 
 @Component({
   selector: 'app-data',
@@ -15,7 +16,9 @@ export class DataComponent implements OnInit {
   numPerPage = 16;
   numPerRow = 4;
 
-  constructor(private getDataService: GetDataService, private itemDetailComponent: ItemDetailComponent) { }
+  constructor(private getDataService: GetDataService, 
+    private itemDetailComponent: ItemDetailComponent, 
+    private queryStringParameters: QueryStringParametersService) { }
 
   ngOnInit() {
     this.getDataService.getData().subscribe(data => {
@@ -26,18 +29,7 @@ export class DataComponent implements OnInit {
   onSelect(item): void {
     console.log(item.stockId);
     this.itemDetailComponent.populateItemDetails(this.data, item.stockId);
-    window.location.href = this.updateQueryStringParameter(window.location.href, "item", "details", item.stockId);
-  }
-
-  updateQueryStringParameter(uri, spcificPage, key, value) {
-    var re = new RegExp("([?&])" + key + "=.*?(&|$)", "i");
-    var separator = uri.indexOf('?') !== -1 ? "&" : "?";
-    if (uri.match(re)) {
-      return uri.replace(re, '$1' + key + "=" + value + '$2');
-    }
-    else {
-      return uri + spcificPage + separator + key + "=" + value;
-    }
+    window.location.href = this.queryStringParameters.updateQueryStringParameter(window.location.href, "item", "details", item.stockId);//this.updateQueryStringParameter(window.location.href, "item", "details", item.stockId);
   }
 
   populateDisplayData(data) {

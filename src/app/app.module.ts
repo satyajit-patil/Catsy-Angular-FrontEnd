@@ -8,7 +8,7 @@ import { DataComponent } from './data/data.component';
 import { SideBarComponent } from './side-bar/side-bar.component';
 import { GetDataService } from './get-data.service';
 import { ItemDetailComponent } from './item-detail/item-detail.component';
-
+import { QueryStringParametersService } from './query-string-parameters.service';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
@@ -34,7 +34,7 @@ import { HttpClientModule } from '@angular/common/http';
       }
     ])
   ],
-  providers: [GetDataService],
+  providers: [GetDataService, QueryStringParametersService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
