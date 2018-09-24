@@ -1,0 +1,12 @@
+.logo {
+    color: white;
+    position: relative;
+    float: left;
+    height: 100%;
+    width: 97%;
+    float: right;
+    font-size: 200%;
+    font-family: 'Lobster', cursive;
+    vertical-align: middle;
+    top: 10%;
+}

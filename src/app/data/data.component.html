@@ -1,0 +1,10 @@
+<div class="container">
+  <div class="row" *ngFor="let row of displayData">
+    <a class="item" *ngFor="let item of row.data" 
+    (click)="onSelect(item)">
+      <img src={{item.imgSrc}}>
+      <p>{{item.description}}</p>
+      <h5>{{item.stockId}}</h5>
+    </a>
+</div>
+</div>

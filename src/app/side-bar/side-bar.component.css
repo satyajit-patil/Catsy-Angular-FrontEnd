@@ -1,0 +1,122 @@
+.sideBarContainer {
+    position: relative;
+    padding-top:10px;
+    width: 90%;
+    height: 85%;
+    padding-left: 10%;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.leadTime, .productManager, .productSeries, .productStatus, .size {
+    position: relative;
+    width: 100%;
+    padding-top: 20px;
+}
+
+/* Dropdown Button */
+.dropdownButton {
+    position: relative;
+    width: 100%;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    background-color: #EDEDED;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    box-sizing: border-box;
+    border: 1px solid #E0E0E0;
+}
+
+.dropdownButton h3 {
+    position: relative;
+    width:70%;
+    font-size: 100%;
+    float: left;
+    text-align: left;
+    padding-left: 8%;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.dropdownButton h2 {
+    position: relative;
+    width:10%;
+    font-size: 100%;
+    float: left;
+    padding-left: 8%;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Dropdown button on hover & focus */
+.dropdownButton:hover, .dropdownButton:focus {
+    background-color: #E0E0E0;
+    outline:0;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: relative;
+    width: 100%;
+    padding-bottom: 56px;
+    box-sizing: border-box;
+    border: 1px solid #E0E0E0;
+    border-radius: 3px;
+
+}
+
+/* Show the dropdown menu*/
+.show {display:block;}
+
+.customCheckbox {
+    position: relative;
+    width: 88%;
+    float: right;
+    padding: 5px;
+  }
+
+  .customCheckbox input[type=checkbox] {
+    visibility: hidden;
+  }
+
+  .customCheckbox input[type=checkbox]:checked + label:after {
+      opacity: 1;
+  }
+
+  .customCheckbox label {
+        width: 18px;
+        height: 18px;
+        cursor: pointer;
+        position: absolute;
+        left: 0;
+        box-sizing: border-box;
+        border: 1px solid #E0E0E0;
+        border-radius: 4px;
+  }
+
+  .customCheckbox label:after {
+    content: '';
+    width: 8px;
+    height: 5px;
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    border: 3px solid black;
+    border-top: none;
+    border-right: none;
+    background: transparent;
+    opacity: 0;
+    transform: rotate(-45deg);
+  }
+  
+  .customCheckbox label:hover::after {
+    opacity: 0.2;
+  }
+
+  .checkboxText {
+      position: relative; 
+      float: left;
+      left: 20px;
+      font-size: 60%;
+      height: 50%;
+     top: 3px;
+  }
