@@ -1,7 +1,7 @@
 <div class="container">
   <div class="top-navigation">
     <div class="searchInformation">
-      <p>{{((currentPageNumber-1)*numPerPage)+1}}-{{currentPageNumber*numPerPage}} of {{totalPages*numPerPage}} RESULTS</p>
+      <p>{{startRange}}-{{endRange}} of {{totalItems}} RESULTS</p>
     </div>
     <div class="buttonList">
       <button (click)="pageChange('<<')"><p>&#x21DA;</p></button>

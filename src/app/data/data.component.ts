@@ -13,10 +13,14 @@ export class DataComponent implements OnInit {
 
   data = {};
   displayData = [];
-  numPerPage = 16;
+  numPerPage = 9;
   numPerRow = 4;
+  totalPages = 1;
+  totalItems = 0; 
+
   currentPageNumber = 1;
-  totalPages = 1; 
+  startRange = 1;
+  endRange = 0;
 
   constructor(private getDataService: GetDataService, 
     private itemDetailComponent: ItemDetailComponent, 
@@ -53,6 +57,16 @@ export class DataComponent implements OnInit {
     {
       this.currentPageNumber = pageNumberInput;
     }
+
+    this.startRange = ((this.currentPageNumber-1)*this.numPerPage)+1;
+    if(this.currentPageNumber == this.displayData.length)
+    {
+      this.endRange = this.totalItems;
+    }
+    else
+    {
+      this.endRange = this.currentPageNumber*this.numPerPage
+    }
   }
   
   onSelect(item): void {
@@ -75,11 +89,18 @@ export class DataComponent implements OnInit {
     for (var key in this.data) {
       // IF data displayed equal number per page
       if (numDataDisplayed == this.numPerPage) {
+        if(Object.keys(rowItem).length !== 0)
+        {
+          pageItem.push(rowItem);
+        }
         this.displayData.push(pageItem);
         pageItem = [];
         numDataDisplayed = 0;
         rowNum = 1;
-        //break;
+        rowItemNum = 0;
+        rowItem = {};
+        rowItem["row"] = 1;
+        rowItem["data"] = [];
       }
         //get item information and push to data for row
         var itemInformation = {};
@@ -92,6 +113,7 @@ export class DataComponent implements OnInit {
         rowItem["data"].push(itemInformation);
         rowItemNum++;
         numDataDisplayed++;
+        this.totalItems++;
 
         // IF reached row max, push rowItem to displayData
         if (rowItemNum == this.numPerRow) {
@@ -99,12 +121,26 @@ export class DataComponent implements OnInit {
           //this.displayData.push(rowItem);
           rowItemNum = 0;
 
-          var rowItem = {};
+          rowItem = {};
           rowNum++;
           rowItem["row"] = rowNum;
           rowItem["data"] = [];
         }
     }
+    if(rowItem)
+    {
+      pageItem.push(rowItem);
+      this.displayData.push(pageItem);
+    }
     this.totalPages = this.displayData.length;
+    
+    if(this.totalItems < this.numPerPage)
+    {
+      this.endRange = this.totalItems;
+    }
+    else
+    {
+      this.endRange = this.numPerPage;
+    }
   }
 }
