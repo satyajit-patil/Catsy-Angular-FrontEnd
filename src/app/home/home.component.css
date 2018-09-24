@@ -21,8 +21,9 @@ app-header {
   }
 
 .sideBar {
-    position: relative;
-    padding-top: 4%;
+    position: fixed; /* Set the navbar to fixed position */
+    top: 8%; /* Position the navbar at the top of the page */ 
+    z-index: 10;   
     height: 92%;
     width: 25%;
     background-color: white;
@@ -41,7 +42,7 @@ app-side-bar {
     height: 92%;
     width: 75%;
     background-color: white;
-    float: left;
+    float: right;
 }
 
 app-data {

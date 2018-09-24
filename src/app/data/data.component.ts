@@ -12,7 +12,7 @@ export class DataComponent implements OnInit {
 
   data = {};
   displayData = [];
-  numPerPage = 8;
+  numPerPage = 16;
   numPerRow = 4;
 
   constructor(private getDataService: GetDataService, private itemDetailComponent: ItemDetailComponent) { }

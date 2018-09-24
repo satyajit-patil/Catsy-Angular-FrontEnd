@@ -1,1 +1,26 @@
-<p>{{itemDetails[0].description}}</p>
+<div class="header">
+        <app-header ></app-header>
+      </div>
+<div class="details">
+    <div class="name">
+        <h3>{{itemDetails[0]?.description}}</h3>
+    </div>
+    <div class="itemInformation">
+        <h4>Stock Number :</h4><p>{{itemDetails[0]?.stockNumber}}</p>
+        <h4>Product Category :</h4><p>{{itemDetails[0]?.productCategory}}</p>
+        <h4>Stock Type : </h4><p>{{itemDetails[0]?.stockType}}</p>
+        <h4>ECCN : </h4><p>{{itemDetails[0]?.eccn}}</p>
+        <h4>RoHS Complaint? : </h4><p>{{itemDetails[0]?.rohs}}</p>
+        <h4>Product Manager : </h4><p>{{itemDetails[0]?.manager}}</p>
+        <h4>Package Type : </h4><p>{{itemDetails[0]?.packageType}}</p>
+        <h4>Multiple : </h4><p>{{itemDetails[0]?.multiple}}</p>
+        <h4>Product Series : </h4><p>{{itemDetails[0]?.productSeries}}</p>
+        <h4>Product Status : </h4><p>{{itemDetails[0]?.productStatus}}</p>
+        <h4>Country of Origin : </h4><p>{{itemDetails[0]?.COO}}</p>
+        <h4>HTS Code : </h4><p>{{itemDetails[0]?.htsCode}}</p>
+        <h4>Leadtime : </h4><p>{{itemDetails[0]?.leadtime}}</p>
+        <h4>Unit Weight(Grams) : </h4><p>{{itemDetails[0]?.unitWeight}}</p>
+        <h4>Package Size : </h4><p>{{itemDetails[0]?.packageSize}}</p>
+        <h4>Dis MOQ : </h4><p>{{itemDetails[0]?.disMOQ}}</p>
+    </div>
+</div>
