@@ -13,12 +13,18 @@ export class DataComponent implements OnInit {
 
   data = {};
   displayData = [];
-  numPerPage = 9;
+  numPerPage = 8;
   numPerRow = 4;
   totalPages = 1;
   totalItems = 0; 
 
   currentPageNumber = 1;
+  currentPageNumberIndex = 1;
+  buttonOneNumber = 1;
+  buttonTwoNumber = 2;
+  buttonThreeNumber = 3;
+  buttonFourNumber = 4;
+
   startRange = 1;
   endRange = 0;
 
@@ -27,35 +33,73 @@ export class DataComponent implements OnInit {
     private queryStringParameters: QueryStringParametersService) { }
 
   ngOnInit() {
+    
     this.getDataService.getData().subscribe(data => {
       this.populateDisplayData(data);
   });
   }
 
-  pageChange(pageNumberInput): void {
+  pageChange(pageNumberInput, buttonNumber): void {
   if(pageNumberInput == '<')
     {
       if(this.currentPageNumber > 1)
       {
+        if(this.currentPageNumber == this.buttonOneNumber)
+        {
+          this.buttonFourNumber = this.currentPageNumber-1;
+          this.buttonThreeNumber = this.buttonFourNumber-1;
+          this.buttonTwoNumber = this.buttonThreeNumber-1;
+          this.buttonOneNumber = this.buttonTwoNumber-1;
+          this.currentPageNumberIndex = 4;
+        }
+        else
+        {
+          this.currentPageNumberIndex--;
+        }
         this.currentPageNumber--;
       }
     }
     else if(pageNumberInput == '>')
     {
       if(this.currentPageNumber < this.displayData.length)
-      this.currentPageNumber++;
+      {
+        if(this.currentPageNumber == this.buttonFourNumber)
+        {
+          this.buttonOneNumber = this.buttonFourNumber+1;
+          this.buttonTwoNumber = this.buttonOneNumber+1;
+          this.buttonThreeNumber = this.buttonTwoNumber+1;
+          this.buttonFourNumber = this.buttonThreeNumber+1;
+          this.currentPageNumberIndex = 1;
+        }
+        else
+        {
+          this.currentPageNumberIndex++;
+        }
+        this.currentPageNumber++;
+      }
     }
     else if(pageNumberInput == '<<')
     {
       this.currentPageNumber = 1;
+      this.buttonOneNumber = this.currentPageNumber;
+      this.buttonTwoNumber = this.buttonOneNumber+1;
+      this.buttonThreeNumber = this.buttonTwoNumber+1;
+      this.buttonFourNumber = this.buttonThreeNumber+1;
+      this.currentPageNumberIndex = 1;
     }
     else if(pageNumberInput == '>>')
     {
       this.currentPageNumber = this.displayData.length;
+      this.buttonFourNumber = this.currentPageNumber;
+      this.buttonThreeNumber = this.buttonFourNumber-1;
+      this.buttonTwoNumber = this.buttonThreeNumber-1;
+      this.buttonOneNumber = this.buttonTwoNumber-1;
+      this.currentPageNumberIndex = 4;
     }
     else
     {
       this.currentPageNumber = pageNumberInput;
+      this.currentPageNumberIndex = buttonNumber;
     }
 
     this.startRange = ((this.currentPageNumber-1)*this.numPerPage)+1;
@@ -67,6 +111,12 @@ export class DataComponent implements OnInit {
     {
       this.endRange = this.currentPageNumber*this.numPerPage
     }
+
+    document.getElementById("buttonNumber1").style.backgroundColor = "white";
+    document.getElementById("buttonNumber2").style.backgroundColor = "white";
+    document.getElementById("buttonNumber3").style.backgroundColor = "white";
+    document.getElementById("buttonNumber4").style.backgroundColor = "white";
+    document.getElementById("buttonNumber" + this.currentPageNumberIndex).style.backgroundColor = "darkgray";
   }
   
   onSelect(item): void {
@@ -142,5 +192,6 @@ export class DataComponent implements OnInit {
     {
       this.endRange = this.numPerPage;
     }
+    document.getElementById("buttonNumber" + this.currentPageNumberIndex).style.backgroundColor = "darkgray";
   }
 }

@@ -6,10 +6,10 @@
     <div class="buttonList">
       <button (click)="pageChange('<<')"><p>&#x21DA;</p></button>
       <button (click)="pageChange('<')"><p>&#x2190;</p></button>
-      <button id="currentPageButton" (click)="pageChange(currentPageNumber)"><p>{{currentPageNumber}}</p></button>
-      <button (click)="pageChange(currentPageNumber+1)"><p>{{currentPageNumber + 1}}</p></button>
-      <button (click)="pageChange(currentPageNumber+2)"><p>{{currentPageNumber + 2}}</p></button>
-      <button (click)="pageChange(currentPageNumber+3)"><p>{{currentPageNumber + 3}}</p></button>
+      <button id="buttonNumber1" (click)="pageChange(buttonOneNumber, 1)"><p>{{buttonOneNumber}}</p></button>
+      <button id="buttonNumber2" (click)="pageChange(buttonTwoNumber, 2)"><p>{{buttonTwoNumber}}</p></button>
+      <button id="buttonNumber3" (click)="pageChange(buttonThreeNumber, 3)"><p>{{buttonThreeNumber}}</p></button>
+      <button id="buttonNumber4" (click)="pageChange(buttonFourNumber, 4)"><p>{{buttonFourNumber}}</p></button>
       <button (click)="pageChange('>')"><p>&#x2192;</p></button>
       <button (click)="pageChange('>>')"><p>&#x21DB;</p></button>
     </div>

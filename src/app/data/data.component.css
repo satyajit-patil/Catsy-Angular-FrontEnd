@@ -44,10 +44,6 @@
   background-color: Transparent;
 }
 
-#currentPageButton {
-  background-color: darkgray;
-}
-
 .buttonList button:focus {
   outline: none;
 }
