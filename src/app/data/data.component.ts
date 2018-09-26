@@ -149,7 +149,15 @@ export class DataComponent implements OnInit {
       element.style.backgroundColor = "darkgray";
     }); 
 
-    document.body.scrollTop = document.documentElement.scrollTop = 0; // go to top of next page
+    // smooth scroll to top
+    let scrollToTop = window.setInterval(() => {
+      let pos = window.pageYOffset;
+      if (pos > 0) {
+          window.scrollTo(0, pos - 20); // how far to scroll on each step
+      } else {
+          window.clearInterval(scrollToTop);
+      }
+  }, 16);
 
   }
 
