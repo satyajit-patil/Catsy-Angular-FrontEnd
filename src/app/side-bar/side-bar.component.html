@@ -1,77 +1,84 @@
 
 <div class="sideBarContainer">
   <div class="leadTime">
-      <button (click)="onSelect('leadtime')" class="dropdownButton"><h3>Leadtime</h3><h2>&#9660;</h2></button>
+      <button (click)="onFilterSelect('leadtime')" class="dropdownButton"><h3>Leadtime</h3><h2>&#9660;</h2></button>
       <div id="leadtime" class="dropdown-content">
       <div class="customCheckbox">
         <input type="checkbox" id="stockTo4Weeks" unchecked />
-        <label for="stockTo4Weeks"></label>
-        <p class="checkboxText">Stock to 4 weeks</p> 
+        <label for="stockTo4Weeks">
+            <p class="checkboxText">Stock to 4 weeks</p> 
+        </label>
       </div>
 
       <div class="customCheckbox">
           <input type="checkbox" value="None" id="7to9Weeks" name="check" unchecked />
-          <label for="7to9Weeks"></label>
-          <p class="checkboxText">7-9 Weeks</p> 
+          <label for="7to9Weeks">
+              <p class="checkboxText">7-9 Weeks</p> 
+          </label>
         </div>
       </div>
       </div>
 
       <div class="productManager">
-          <button (click)="onSelect('productManager')" class="dropdownButton"><h3>Product Manager</h3><h2>&#9660;</h2></button>
+          <button (click)="onFilterSelect('productManager')" class="dropdownButton"><h3>Product Manager</h3><h2>&#9660;</h2></button>
           <div id="productManager" class="dropdown-content">
             <div class="customCheckbox">
               <input type="checkbox" value="None" id="Tommer" name="check" unchecked />
-              <label for="Tommer"></label>
-              <p class="checkboxText">Tommer</p> 
+              <label for="Tommer">
+                  <p class="checkboxText">Tommer</p> 
+              </label>
             </div>
       
             <div class="customCheckbox">
                 <input type="checkbox" value="None" id="Orban" name="check" unchecked />
-                <label for="Orban"></label>
-                <p class="checkboxText">Orban</p> 
+                <label for="Orban">
+                    <p class="checkboxText">Orban</p> 
+                </label>
               </div>
             </div>
           </div>
 
           <div class="productSeries">
-              <button (click)="onSelect('productSeries')" class="dropdownButton"><h3>Product Series</h3><h2>&#9660;</h2></button>
+              <button (click)="onFilterSelect('productSeries')" class="dropdownButton"><h3>Product Series</h3><h2>&#9660;</h2></button>
               <div id="productSeries" class="dropdown-content">
                 <div class="customCheckbox">
                   <input type="checkbox" value="None" id="BNC" name="check" unchecked />
-                  <label for="BNC"></label>
-                  <p class="checkboxText">BNC</p> 
+                  <label for="BNC">
+                      <p class="checkboxText">BNC</p> 
+                  </label>
                 </div>
                 </div>
               </div>
 
               <div class="productStatus">
-                  <button (click)="onSelect('productStatus')" class="dropdownButton"><h3>Product Status</h3><h2>&#9660;</h2></button>
+                  <button (click)="onFilterSelect('productStatus')" class="dropdownButton"><h3>Product Status</h3><h2>&#9660;</h2></button>
                   <div id="productStatus" class="dropdown-content">
                     <div class="customCheckbox">
                       <input type="checkbox" value="None" id="A" name="check" unchecked />
-                      <label for="A"></label>
-                      <p class="checkboxText">A</p> 
+                      <label for="A">
+                          <p class="checkboxText">A</p> 
+                      </label>
                     </div>
               
                     <div class="customCheckbox">
                         <input type="checkbox" value="None" id="ANR" name="check" unchecked />
-                        <label for="ANR"></label>
-                        <p class="checkboxText">ANR</p> 
+                        <label for="ANR">
+                            <p class="checkboxText">ANR</p> 
+                        </label>
                       </div>
                     </div>
                   </div>
 
                   <div class="size">
-                      <button (click)="onSelect('size')" class="dropdownButton"><h3>Size</h3><h2>&#9660;</h2></button>
+                      <button (click)="onFilterSelect('size')" class="dropdownButton"><h3>Size</h3><h2>&#9660;</h2></button>
                       <div id="size" class="dropdown-content">
                         <div class="customCheckbox">
                           <input type="checkbox" value="None" id="large" name="check" unchecked />
-                          <label for="large"></label>
-                          <p class="checkboxText">Large</p> 
+                          <label for="large">
+                              <p class="checkboxText">Large</p> 
+                          </label>
                         </div>
                         </div>
                       </div>
-
   </div>
 

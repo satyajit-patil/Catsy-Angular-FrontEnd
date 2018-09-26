@@ -3,6 +3,10 @@ import { GetDataService } from '../get-data.service';
 import { ItemDetailComponent } from '../item-detail/item-detail.component';
 import { QueryStringParametersService } from '../query-string-parameters.service';
 
+/**
+ * This class represents the data components on the main catalog page.
+ * It is used to render the navigation bar and the results
+ */
 @Component({
   selector: 'app-data',
   templateUrl: './data.component.html',
@@ -13,7 +17,7 @@ export class DataComponent implements OnInit {
 
   data = {}; // store input data
   displayData = []; // data to be rendered; array of pages
-  numPerPage = 8; // number of results per page
+  numPerPage = 12; // number of results per page
   itemsPerRow = 4; // number of items per row on a page
 
   currentPageNumber = 1; // tracks the current page number
@@ -36,7 +40,7 @@ export class DataComponent implements OnInit {
     private queryStringParameters: QueryStringParametersService) { }
 
   ngOnInit() {
-    this.getDataService.getData().subscribe(data => {
+        this.getDataService.getData().subscribe(data => {
       this.populateDisplayData(data);
     });
   }
@@ -143,7 +147,10 @@ export class DataComponent implements OnInit {
     })
     Array.from(document.getElementsByName("buttonNumber" + this.currentPageNumberButtonIndex)).forEach((element) => { 
       element.style.backgroundColor = "darkgray";
-    });  
+    }); 
+
+    document.body.scrollTop = document.documentElement.scrollTop = 0; // go to top of next page
+
   }
 
   /**
@@ -153,7 +160,8 @@ export class DataComponent implements OnInit {
    */
   onSelect(item): void {
     this.itemDetailComponent.populateItemDetails(this.data, item.stockId); // Get item details from data
-    window.location.href = this.queryStringParameters.updateQueryStringParameter(window.location.href, "item", "details", item.stockId);
+    var newUrl = window.location.href + "item";
+    window.location.href = this.queryStringParameters.updateQueryStringParameter(newUrl, "details", item.stockId);
   }
 
   /**

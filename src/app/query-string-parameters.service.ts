@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
 
+/**
+ * This class is used to handle Query String Parameters
+ */
 @Injectable({
   providedIn: 'root'
 })
@@ -7,17 +10,23 @@ export class QueryStringParametersService {
 
   constructor() { }
 
-  updateQueryStringParameter = (uri, spcificPage, key, value) => {
+  /**
+   * Insert a query string parameter given a key and a value
+   */
+  updateQueryStringParameter = (uri, key, value) => {
     var re = new RegExp("([?&])" + key + "=.*?(&|$)", "i");
     var separator = uri.indexOf('?') !== -1 ? "&" : "?";
     if (uri.match(re)) {
       return uri.replace(re, '$1' + key + "=" + value + '$2');
     }
     else {
-      return uri + spcificPage + separator + key + "=" + value;
+      return uri + separator + key + "=" + value;
     }
   }
 
+  /**
+   * Get the value of a particular query string key given a url
+   */
   getParameterByName = (name, url) => {
     if (!url) url = window.location.href;
     name = name.replace(/[\[\]]/g, '\\$&');
