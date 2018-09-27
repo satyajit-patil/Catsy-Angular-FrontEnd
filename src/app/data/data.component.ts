@@ -15,7 +15,7 @@ import { QueryStringParametersService } from '../query-string-parameters.service
 })
 export class DataComponent implements OnInit {
 
-  numPerPage = 12; // number of results per page
+  numPerPage = 8; // number of results per page
 
   displayData = []; // data to be rendered; array of pages
   displayDataForCurrentPage = []; // data to be rendered; array of rows
