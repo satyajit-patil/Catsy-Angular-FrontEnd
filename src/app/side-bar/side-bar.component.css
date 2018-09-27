@@ -1,3 +1,9 @@
+:host {
+    display: block;
+    height: 100%;
+    width: 100%;
+}
+
 .sideBarContainer {
     position: relative;
     padding-top: 10px;
@@ -30,10 +36,10 @@
 .dropdownButton h3 {
     position: relative;
     width: 70%;
-    font-size: 100%;
+    font-size: 100%; /*dynamic*/
     float: left;
     text-align: left;
-    padding-left: 8%;
+    margin-left: 8%;
     font-family: 'Montserrat', sans-serif;
 }
 
@@ -42,7 +48,7 @@
     width: 10%;
     font-size: 100%;
     float: left;
-    padding-left: 8%;
+    margin-left: 8%;
     font-family: 'Montserrat', sans-serif;
 }
 
@@ -71,6 +77,7 @@
     display: table-row;
     position: relative;
     width: 88%;
+    height: 22px; /* dynamic */
     float: right;
     padding: 5px;
 }
@@ -84,8 +91,8 @@
 }
 
 .customCheckbox label {
-    width: 18px;
-    height: 18px;
+    width: 18px; /* dynamic */
+    height: 18px; /* dynamic */
     cursor: pointer;
     position: absolute;
     left: 0;
@@ -117,7 +124,7 @@
     position: relative;
     float: left;
     left: 25px;
-    font-size: 60%;
+    font-size: 60%; /* dynamic */
     height: 50%;
     top: 3px;
     width: 700%;

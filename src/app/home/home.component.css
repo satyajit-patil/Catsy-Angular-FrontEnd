@@ -16,7 +16,7 @@
 
 .sideBar {
     position: fixed; /* Set the navbar to fixed position */
-    top: 8%; /* Position the navbar at the top of the page */ 
+    top: 8%; 
     z-index: 10;   
     height: 92%;
     width: 25%;
@@ -24,23 +24,11 @@
     float: left;
 }
 
-app-side-bar {
-    display: block;
-    height: 100%;
-    width: 100%;
-}
-
 .mainContent {
     position: relative;
-    padding-top: 4%;
+    top: 8%; 
     height: 92%;
     width: 75%;
     background-color: white;
     float: right;
 }
-
-app-data {
-    display: block;
-    height: 100%;
-    width: 100%;
-  }
