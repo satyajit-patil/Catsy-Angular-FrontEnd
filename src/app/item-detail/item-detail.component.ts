@@ -41,17 +41,7 @@ export class ItemDetailComponent implements OnInit {
     productDetails['disMOQ'] = "";
 
     this.itemDetails.push(productDetails);
-
-    // get product stockID
-    var stockId = this.queryStringParameters.getParameterByName('details', null);
-    if(stockId)
-    {
-      // get itemDetails for stockID
-      this.itemDetails = [];
-      this.getDataService.getData().subscribe(data => {
-        this.populateItemDetails(data,stockId);
-    });
-    }
+    this.populateItemDetails();
     return this.itemDetails;
   }
 
@@ -61,25 +51,33 @@ export class ItemDetailComponent implements OnInit {
    * @param data 
    * @param stockId 
    */
-  populateItemDetails(data, stockId) {
-    var productDetails = {};
-    productDetails['description'] = data[stockId]['name'];
-    productDetails['stockNumber'] = data[stockId]['number'];
-    productDetails['productCategory'] = data[stockId]['category'];
-    productDetails['stockType'] = data[stockId]['stock_type'];
-    productDetails['eccn'] = data[stockId]['eccn'];
-    productDetails['rohs'] = data[stockId]['rohs_compliant'];
-    productDetails['manager'] = data[stockId]['product_manager'];
-    productDetails['packageType'] = data[stockId]['package_type'];
-    productDetails['multiple'] = data[stockId]['multiple'];
-    productDetails['productSeries'] = data[stockId]['product_series'];
-    productDetails['productStatus'] = data[stockId]['product_status'];
-    productDetails['COO'] = data[stockId]['country_of_origin'];
-    productDetails['htsCode'] = data[stockId]['hts_code'];
-    productDetails['leadtime'] = data[stockId]['leadtime'];
-    productDetails['unitWeight'] = data[stockId]['unite_weight_grams'];
-    productDetails['packageSize'] = data[stockId]['package_size'];
-    productDetails['disMOQ'] = data[stockId]['dis_moq'];
-    this.itemDetails.push(productDetails);
+  populateItemDetails() {
+        // get product stockID
+        var stockId = this.queryStringParameters.getParameterByName('details', null);
+        if(stockId)
+        {
+          // get itemDetails for stockID by subsribing to data
+          this.itemDetails = [];
+          this.getDataService.getData().subscribe(data => {
+            var productDetails = {};
+            productDetails['description'] = data[stockId]['name'];
+            productDetails['stockNumber'] = data[stockId]['number'];
+            productDetails['productCategory'] = data[stockId]['category'];
+            productDetails['stockType'] = data[stockId]['stock_type'];
+            productDetails['eccn'] = data[stockId]['eccn'];
+            productDetails['rohs'] = data[stockId]['rohs_compliant'];
+            productDetails['manager'] = data[stockId]['product_manager'];
+            productDetails['packageType'] = data[stockId]['package_type'];
+            productDetails['multiple'] = data[stockId]['multiple'];
+            productDetails['productSeries'] = data[stockId]['product_series'];
+            productDetails['productStatus'] = data[stockId]['product_status'];
+            productDetails['COO'] = data[stockId]['country_of_origin'];
+            productDetails['htsCode'] = data[stockId]['hts_code'];
+            productDetails['leadtime'] = data[stockId]['leadtime'];
+            productDetails['unitWeight'] = data[stockId]['unite_weight_grams'];
+            productDetails['packageSize'] = data[stockId]['package_size'];
+            productDetails['disMOQ'] = data[stockId]['dis_moq'];
+            this.itemDetails.push(productDetails);        });
+        }
   }
 }

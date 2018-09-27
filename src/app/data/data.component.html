@@ -14,7 +14,7 @@
       <button (click)="pageChange('>>', null)"><p>&#x21DB;</p></button>
     </div>
   </div>
-  <div class="row" *ngFor="let row of displayData[currentPageNumber-1]">
+  <div class="row" *ngFor="let row of displayDataForCurrentPage">
     <a class="item" *ngFor="let item of row.data" 
     (click)="onSelect(item)">
       <img src={{item.imgSrc}}>
