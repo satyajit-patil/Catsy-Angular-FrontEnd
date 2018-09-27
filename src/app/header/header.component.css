@@ -10,7 +10,37 @@
     position: relative;
     width:97%;
     padding-left: 3%;
-    font-size: 180%;
+    font-size: 180%; 
     font-family: 'Lobster', cursive;
     vertical-align: middle;
+}
+
+@media only screen and (min-width: 1000px) {
+    #logo {
+        font-size: 180%; 
+    }
+}
+
+@media only screen and (min-width: 1250px) {
+    #logo {
+        font-size: 240%; 
+    }
+}
+
+@media only screen and (min-width: 1350px) {
+    #logo {
+        font-size: 240%; 
+    }
+}
+
+@media only screen and (min-width: 1580px) {
+    #logo {
+        font-size: 320%; 
+    }
+}
+
+@media only screen and (min-width: 1870px) {
+    #logo {
+        font-size: 340%;
+    }
 }

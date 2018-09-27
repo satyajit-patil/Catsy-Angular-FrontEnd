@@ -123,9 +123,106 @@
 .checkboxText {
     position: relative;
     float: left;
-    left: 25px;
+    left: 28px;
     font-size: 60%; /* dynamic */
     height: 50%;
     top: 3px;
     width: 700%;
+}
+
+@media only screen and (min-width: 1000px) {
+    .dropdownButton h3 {
+        font-size: 90%; /*dynamic*/
+    }
+    
+    .customCheckbox {
+        height: 20px; /* dynamic */
+    }
+    
+    .customCheckbox label {
+        width: 16px; /* dynamic */
+        height: 15px; /* dynamic */
+    }
+    
+    .checkboxText {
+        font-size: 55%; /* dynamic */
+    }
+}
+
+@media only screen and (min-width: 1250px) {
+    .dropdownButton h3 {
+        font-size: 100%; /*dynamic*/
+    }
+
+    .customCheckbox {
+        height: 22px; /* dynamic */
+    }
+
+    .customCheckbox label {
+        width: 18px; /* dynamic */
+        height: 18px; /* dynamic */
+    }
+
+    .checkboxText {
+
+        font-size: 60%; /* dynamic */
+    }
+}
+
+@media only screen and (min-width: 1350px) {
+    .dropdownButton h3 {
+        font-size: 100%; /*dynamic*/
+    }
+
+    .customCheckbox {
+        height: 22px; /* dynamic */
+    }
+
+    .customCheckbox label {
+        width: 18px; /* dynamic */
+        height: 18px; /* dynamic */
+    }
+
+    .checkboxText {
+
+        font-size: 65%; /* dynamic */
+    }
+}
+
+@media only screen and (min-width: 1580px) {
+    .dropdownButton h3 {
+        font-size: 130%; /*dynamic*/
+    }
+
+    .customCheckbox {
+        height: 27px; /* dynamic */
+    }
+
+    .customCheckbox label {
+        width: 22px; /* dynamic */
+        height: 22px; /* dynamic */
+    }
+
+    .checkboxText {
+        font-size: 80%; /* dynamic */
+    }
+}
+
+@media only screen and (min-width: 1870px) {
+    .dropdownButton h3 {
+        font-size: 140%; /*dynamic*/
+    }
+
+    .customCheckbox {
+        height: 29px; /* dynamic */
+    }
+
+    .customCheckbox label {
+        width: 24px; /* dynamic */
+        height: 24px; /* dynamic */
+    }
+
+    .checkboxText {
+        font-size: 85%; /* dynamic */
+    }
 }

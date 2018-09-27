@@ -135,3 +135,128 @@
   height: 10%;
   text-align: left;
 }
+
+@media only screen and (min-width: 1000px) {
+  .searchInformation {
+    font-size: 65%; /* Dynamic */
+  }
+
+  .buttonList button {
+    font-size: 65%; /* Dynamic */
+  }
+  .row {
+    height: 190px; /* DYNAMIC */
+  }
+
+  .item {
+    height: 190px; /* DYNAMIC */
+  }
+
+  .item p {
+    font-size: 50%; /* DYNAMIC */
+  }
+  
+  .item h5 {
+    font-size: 60%; /* DYNAMIC */
+  }
+}
+
+@media only screen and (min-width: 1250px) {
+  .searchInformation {
+    font-size: 70%; /* Dynamic */
+  }
+
+  .buttonList button {
+    font-size: 70%; /* Dynamic */
+  }
+  .row {
+    height: 220px; /* DYNAMIC */
+  }
+
+  .item {
+    height: 220px; /* DYNAMIC */
+  }
+
+  .item p {
+    font-size: 60%; /* DYNAMIC */
+  }
+  
+  .item h5 {
+    font-size: 70%; /* DYNAMIC */
+  }
+}
+
+@media only screen and (min-width: 1350px) {
+  .searchInformation {
+    font-size: 75%; /* Dynamic */
+  }
+
+  .buttonList button {
+    font-size: 70%; /* Dynamic */
+  }
+  .row {
+    height: 250px; /* DYNAMIC */
+  }
+
+  .item {
+    height: 250px; /* DYNAMIC */
+  }
+
+  .item p {
+    font-size: 65%; /* DYNAMIC */
+  }
+  
+  .item h5 {
+    font-size: 75%; /* DYNAMIC */
+  }
+}
+
+@media only screen and (min-width: 1580px) {
+  .searchInformation {
+    font-size: 90%; /* Dynamic */
+  }
+
+  .buttonList button {
+    font-size: 90%; /* Dynamic */
+  }
+  .row {
+    height: 280px; /* DYNAMIC */
+  }
+
+  .item {
+    height: 280px; /* DYNAMIC */
+  }
+
+  .item p {
+    font-size: 80%; /* DYNAMIC */
+  }
+  
+  .item h5 {
+    font-size: 90%; /* DYNAMIC */
+  }
+}
+
+@media only screen and (min-width: 1870px) {
+  .searchInformation {
+    font-size: 100%; /* Dynamic */
+  }
+
+  .buttonList button {
+    font-size: 100%; /* Dynamic */
+  }
+  .row {
+    height: 320px; /* DYNAMIC */
+  }
+
+  .item {
+    height: 320px; /* DYNAMIC */
+  }
+
+  .item p {
+    font-size: 80%; /* DYNAMIC */
+  }
+  
+  .item h5 {
+    font-size: 90%; /* DYNAMIC */
+  }
+}
