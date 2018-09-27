@@ -109,10 +109,10 @@
 
 .item img {
   position: relative;
-  max-height: 100%;
   max-width: 90%;
-  bottom: 0;
-  vertical-align: bottom;
+  display: inline-block;
+  vertical-align: middle;
+  height: 100%;
 }
 
 .item p {
