@@ -1,18 +1,16 @@
 :host {
-    display: block;
+    display: table;
     height: 100%;
     width: 100%;
 }
 
-.logo {
+#logo {
     color: white;
+    display: table-cell;
     position: relative;
-    float: left;
-    height: 100%;
-    width: 97%;
-    float: right;
-    font-size: 200%;
+    width:97%;
+    padding-left: 3%;
+    font-size: 180%;
     font-family: 'Lobster', cursive;
     vertical-align: middle;
-    top: 10%;
 }
